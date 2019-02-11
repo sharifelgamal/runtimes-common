@@ -52,7 +52,10 @@ if [ -n "${DOCKER_NAMESPACE:+set}" ];
 then
   export CLOUDSDK_PROJECT=$(echo $DOCKER_NAMESPACE | cut -d'/' -f2)
 fi
-
+gcloud config set project $CLOUDSDK_PROJECT
+gcloud components install beta -q
+gcloud components install alpha -q
+gcloud auth configure-docker -q
 #source $KOKORO_GFILE_DIR/common.sh
-cd runtimes-common/appengine/runtime_builders
+#cd runtimes-common/appengine/runtime_builders
 python template_builder.py -f "config/${CONFIG_FILE}"
