@@ -57,6 +57,5 @@ gcloud components install beta -q
 gcloud components install alpha -q
 gcloud auth configure-docker -q
 #source $KOKORO_GFILE_DIR/common.sh
-#cd runtimes-common/appengine/runtime_builders
-#python template_builder.py -f "config/${CONFIG_FILE}"
-ls
+cd github/runtimes-common/appengine/runtime_builders
+python template_builder.py -f "config/${CONFIG_FILE}"
