@@ -60,4 +60,4 @@ gcloud auth configure-docker -q
 cd github/runtimes-common/appengine/runtime_builders
 yes | sudo pip install -U pip setuptools wheel
 yes | sudo pip install ruamel.yaml
-python template_builder.py -f "config/${CONFIG_FILE}"
+python template_builder.py -f "${KOKORO_GFILE_DIR}/${CONFIG_FILE}"
